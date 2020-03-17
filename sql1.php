@@ -8,11 +8,14 @@
 	{
 		echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error; 
 	}
-	echo "链接成功";echo "<br>";
-	// echo $mysqli->host_info . "\n";
+	echo "链接成功";echo "<br>";echo "<hr>";
 	
-	//查询
-	$sql = "select * from p_users";
+	echo "未处理前的参数 : ".$_GET['uid'];echo "<br>";
+	$uid = intval($_GET['uid']);
+	
+	echo "接收的参数:".$uid;echo "<br>";
+	// $uid = $_GET['uid'];
+	$sql = "select * from p_users where id=".$uid;
 	
 	//执行
 	$res = $mysqli->query($sql);
